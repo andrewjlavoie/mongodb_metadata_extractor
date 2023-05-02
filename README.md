@@ -38,7 +38,20 @@ The script will read the text file, analyze the text, and store the metadata in 
 Here is a sample document.
 
 ```json
-{"_id":{"$oid":"64517963ea037f029723ebe7"},"text":"The new solar panel technology has greatly improved the efficiency of energy conversion.","keywords":["panel","technology","efficiency","energy","conversion"],"sentiment":"positive","category":"science"}
+{
+  "_id": {"$oid":"64517963ea037f029723ebe7"},
+  "text":"The new solar panel technology has greatly improved the efficiency of energy conversion.",
+  "keywords":
+    [
+      "panel",
+      "technology",
+      "efficiency",
+      "energy",
+      "conversion"
+    ],
+  "sentiment":"positive",
+  "category":"science"
+}
 ```
 
 ## Customization
