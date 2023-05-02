@@ -51,7 +51,7 @@ document = {
     ],
   "sentiment":"positive",
   "category":"science"
-}
+  }
 ```
 
 ## Customization
