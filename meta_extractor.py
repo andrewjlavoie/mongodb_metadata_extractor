@@ -3,6 +3,7 @@ import os
 import nltk
 from textblob import TextBlob
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from pymongo import MongoClient
 from typing import List
@@ -20,11 +21,15 @@ training_data = [
 ]
 
 # Function to extract keywords
-def extract_keywords(text: str, max_keywords: int = 10) -> List[str]:
-    tokens = nltk.word_tokenize(text)
-    tagged = nltk.pos_tag(tokens)
-    keywords = [word for word, pos in tagged if pos in ('NN', 'NNS', 'NNP', 'NNPS')]
-    return keywords[:max_keywords]
+def extract_keywords(text: str, max_keywords: int = 5) -> List[str]:
+    vectorizer = TfidfVectorizer(stop_words='english')
+    X = vectorizer.fit_transform([text])
+
+    feature_array = np.array(vectorizer.get_feature_names())
+    tfidf_sorting = np.argsort(X.toarray()).flatten()[::-1]
+
+    top_keywords = feature_array[tfidf_sorting][:max_keywords]
+    return top_keywords.tolist()
 
 # Function to extract sentiment
 def extract_sentiment(text: str) -> str:
