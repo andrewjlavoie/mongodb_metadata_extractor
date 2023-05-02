@@ -21,7 +21,7 @@ pip install nltk textblob scikit-learn pymongo
 To use the script, execute it in the command line with the file path as an argument:
 
 ```bash
-python script.py path/to/text_file.txt
+python meta_extractor.py path/to/text_file.txt
 ```
 
 The script will read the text file, analyze the text, and store the metadata in a MongoDB collection.
@@ -32,6 +32,14 @@ The script will read the text file, analyze the text, and store the metadata in 
 - Determines the sentiment of the text (positive, negative, or neutral)
 - Categorizes the content based on predefined training data (e.g., science, technology, sports, politics)
 - Stores the extracted metadata in a MongoDB collection
+
+## Document Design
+
+Here is a sample document.
+
+```json
+{"_id":{"$oid":"64517963ea037f029723ebe7"},"text":"The new solar panel technology has greatly improved the efficiency of energy conversion.","keywords":["panel","technology","efficiency","energy","conversion"],"sentiment":"positive","category":"science"}
+```
 
 ## Customization
 
