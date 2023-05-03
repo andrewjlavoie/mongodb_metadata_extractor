@@ -28,7 +28,7 @@ The script will read the text file, analyze the text, and store the metadata in 
 
 ## Features
 
-- Extracts up to 10 keywords from the text
+- Extracts up to 5 most significant keywords from the text using the TF-IDF method
 - Determines the sentiment of the text (positive, negative, or neutral)
 - Categorizes the content based on predefined training data (e.g., science, technology, sports, politics)
 - Stores the extracted metadata in a MongoDB collection
